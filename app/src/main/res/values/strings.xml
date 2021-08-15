@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">StudentLifeManager</string>
+    <string name="app_name">SDLM</string>
     <string name="title_expense">Expense</string>
     <string name="title_Notes">Notes</string>
     <string name="title_task">Task</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_spend_for">Spend for</string>
+    <string name="hint_add_note">Add note</string>
+    <string name="lbl_expense">Expense</string>
+    <string name="lbl_income">Income</string>
+    <string name="lbl_select_date">Select Date</string>
+    <string name="lbl_cancel">Cancel</string>
+    <string name="lbl_ok">Ok</string>
+    <string name="hint_source">Source</string>
 </resources>

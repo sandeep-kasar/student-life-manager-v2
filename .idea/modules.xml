@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/student-life-manager-v2.iml" filepath="$PROJECT_DIR$/.idea/modules/student-life-manager-v2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StudentLifeManager.iml" filepath="$PROJECT_DIR$/.idea/modules/StudentLifeManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/StudentLifeManager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/StudentLifeManager.app.iml" />
     </modules>
   </component>
 </project>
