@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.studentlifemanager.utils.IViewCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/layDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:titleTextColor="@color/white" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layDate"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/nav_host_fragment_activity_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imgMothLeft"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dimen_15"
+                android:onClick="@{()-> callback.viewCallBack()}"
+                android:padding="@dimen/dim_5dp"
+                android:src="@drawable/ic_left"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:gravity="center"
+                android:onClick="@{()-> callback.viewCallBack()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_17sp"
+                tools:text="January," />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dim_5dp"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:gravity="center"
+                android:onClick="@{()-> callback.viewCallBack()}"
+                android:text="2023"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_17sp" />
+
+            <ImageView
+                android:id="@+id/imgMonthRight"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_15"
+                android:onClick="@{()-> callback.viewCallBack()}"
+                android:padding="@dimen/dim_5dp"
+                android:src="@drawable/ic_right"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <fragment
+            android:id="@+id/nav_host_fragment_activity_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layDate"
+            app:navGraph="@navigation/mobile_navigation" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_0"
+            android:layout_marginEnd="@dimen/dp_0"
+            android:background="?android:attr/windowBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nav_host_fragment_activity_main"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
