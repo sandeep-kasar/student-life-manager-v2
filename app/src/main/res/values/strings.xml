@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">sdlm</string>
+    <string name="title_expense">Expense</string>
+    <string name="title_Notes">Notes</string>
+    <string name="title_task">Task</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_spend_for">Spend for</string>
+    <string name="hint_add_note">Add note</string>
+    <string name="lbl_expense">Expense</string>
+    <string name="lbl_income">Income</string>
+    <string name="lbl_select_date">Select Date</string>
+    <string name="lbl_cancel">Cancel</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="lbl_ok">Ok</string>
+    <string name="hint_source">Source</string>
+    <string name="alert_add_amout">Please add amount and title</string>
+    <string name="msg_say_something">Say something..</string>
+    <string name="please_add_amount">Please add amount</string>
+    <string name="please_add_title">Please add title</string>
+    <string name="header_total">\u20B9 %d</string>
+    <string name="please_select_the_month">"Please Select The Month "</string>
+    <string name="month_january">January</string>
+    <string name="month_february">February</string>
+    <string name="month_march">March</string>
+    <string name="month_april">April</string>
+    <string name="month_may">May</string>
+    <string name="month_june">June</string>
+    <string name="month_july">July</string>
+    <string name="month_august">August</string>
+    <string name="month_september">September</string>
+    <string name="month_october">October</string>
+    <string name="month_november">November</string>
+    <string name="month_december">December</string>
+</resources>
