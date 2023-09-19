@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvExpense"
+            style="@style/DialogExpenseTextView"
+            android:text="@string/lbl_expense"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvIncome"
+            style="@style/DialogIncomeTextView"
+            android:text="@string/lbl_income"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toTopOf="@+id/guideline11">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStartRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.48" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.51" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEndLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.18" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.19" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:hint="@string/hint_amount"
+            android:inputType="number"
+            android:maxLength="5"
+            android:nextFocusDown="@id/edtSpendFor"
+            app:layout_constraintBottom_toTopOf="@+id/edtSpendFor"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toBottomOf="@+id/guideline13">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtSpendFor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_spend_for"
+            android:nextClusterForward="@id/edtNote"
+            app:layout_constraintBottom_toTopOf="@+id/edtNote"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toBottomOf="@+id/edtAmount">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_add_note"
+            app:layout_constraintBottom_toBottomOf="@id/guideline14"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toBottomOf="@+id/edtSpendFor">
+
+        </androidx.appcompat.widget.AppCompatEditText>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSelectDate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="fill_horizontal|center"
+            android:textSize="@dimen/dim_17sp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline15"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@id/guidelineDateicon"
+            app:layout_constraintTop_toTopOf="@+id/guidelineDate"
+            tools:text="13 Sept 2021">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineDateicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.20" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/ic_calendar"
+            app:layout_constraintBottom_toTopOf="@+id/guideline15"
+            app:layout_constraintEnd_toStartOf="@+id/tvSelectDate"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toTopOf="@+id/guidelineDate">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.69" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.82" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.86" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineCancelEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineOkStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOk"
+            style="@style/DialogCancelTextView"
+            android:text="@string/lbl_ok"
+            app:layout_constraintBottom_toBottomOf="@id/guideline17"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineEndLeft"
+            app:layout_constraintStart_toStartOf="@+id/guidelineOkStart"
+            app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDelete"
+            style="@style/DialogDeleteTextView"
+            android:text="@string/lbl_delete"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/guideline17"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineCancelEnd"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStartRight"
+            app:layout_constraintTop_toTopOf="@+id/guideline18"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancel"
+            style="@style/DialogCancelTextView"
+            android:text="@string/lbl_cancel"
+            app:layout_constraintBottom_toTopOf="@+id/guideline17"
+            app:layout_constraintEnd_toStartOf="@+id/guidelineOkStart"
+            app:layout_constraintStart_toStartOf="@+id/guidelineCancelEnd"
+            app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
