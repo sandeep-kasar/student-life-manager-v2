@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dimen_15"
             android:layout_marginBottom="@dimen/dimen_15"
-            android:contentDescription="TODO"
             android:onClick="@{()-> callback.viewCallBack()}"
             android:src="@drawable/ic_plus"
             app:fabSize="normal"

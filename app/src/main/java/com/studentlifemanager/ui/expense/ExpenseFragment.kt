@@ -51,6 +51,7 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperatio
     ): View? {
         _binding = FragmentMyexpenseBinding.inflate(inflater, container, false)
         _binding.lifecycleOwner = viewLifecycleOwner
+        _binding.callback = this
         return binding?.root
     }
 
