@@ -1,0 +1,64 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "b5bdd758dc72a1d02fe747555825b0bf",
+    "entities": [
+      {
+        "tableName": "my_expense",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ex_amount` INTEGER NOT NULL, `ex_title` TEXT NOT NULL, `ex_note` TEXT NOT NULL, `ex_type` INTEGER NOT NULL, `ex_date` TEXT NOT NULL, `ex_month` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "exAmount",
+            "columnName": "ex_amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exTitle",
+            "columnName": "ex_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exNote",
+            "columnName": "ex_note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exType",
+            "columnName": "ex_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exDate",
+            "columnName": "ex_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exMonth",
+            "columnName": "ex_month",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "ex_amount"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b5bdd758dc72a1d02fe747555825b0bf')"
+    ]
+  }
+}
