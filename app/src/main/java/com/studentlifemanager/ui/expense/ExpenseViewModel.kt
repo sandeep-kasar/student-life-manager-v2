@@ -1,22 +1,18 @@
 package com.studentlifemanager.ui.expense
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.studentlifemanager.data.entity.ExpenseEntity
 import com.studentlifemanager.data.model.ExpenseData
 import com.studentlifemanager.data.model.ExpenseDate
 import com.studentlifemanager.data.model.ExpenseHeader
 import com.studentlifemanager.utils.Constant
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.lang.Exception
+import javax.inject.Inject
 
 /**
  * This is the viewModel for Expense Fragment
@@ -28,7 +24,9 @@ import java.lang.Exception
  *
  * */
 
-class ExpenseViewModel(private val repository: ExpenseRepository) : ViewModel() {
+@HiltViewModel
+class ExpenseViewModel @Inject constructor(private val repository: ExpenseRepository) :
+    ViewModel() {
 
     private val expenseDataList = ArrayList<ExpenseData>()
 

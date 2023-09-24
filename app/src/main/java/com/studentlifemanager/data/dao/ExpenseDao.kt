@@ -51,5 +51,3 @@ interface ExpenseDao {
     fun updateExpenseById(amount: Long, title: String, note: String, date: String, exId: Int)
 
 }
-
-//String selectQuery = "select sum(ex_amount) As amount from MyExpence where ex_date='" + date + "' and ex_type = 0";

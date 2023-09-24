@@ -4,6 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -47,6 +48,9 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    kapt {
+        correctErrorTypes = true
+    }
 
 }
 
@@ -68,5 +72,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.vectordrawable:vectordrawable:1.1.0")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("com.google.dagger:hilt-android:2.48")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
     //implementation("uk.co.markormesher:android-fab:2.5.0")
 }
