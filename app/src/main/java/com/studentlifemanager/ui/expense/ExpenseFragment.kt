@@ -87,9 +87,6 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperatio
             it.adapter = expenseAdapter
         }
 
-        // get expense data from database and display on screen
-        expenseViewModel.getExpenseData(mMonth)
-
     }
 
     /**
