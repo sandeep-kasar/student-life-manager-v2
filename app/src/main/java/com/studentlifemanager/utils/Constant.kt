@@ -18,4 +18,7 @@ object Constant {
     // string
     const val EMPTY = ""
 
+    // database
+    const val DATABASE_NAME = "app_database"
+
 }
