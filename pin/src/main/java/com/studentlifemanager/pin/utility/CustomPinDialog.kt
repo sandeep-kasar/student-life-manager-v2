@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,7 +55,7 @@ fun CustomDialog(value: String, setShowDialog: (Boolean) -> Unit, setValue: (Str
             ) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceAround
+                    horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     Text(
                         text = "Website",
@@ -61,17 +63,24 @@ fun CustomDialog(value: String, setShowDialog: (Boolean) -> Unit, setValue: (Str
                             .border(
                                 BorderStroke(1.dp, colorResource(id = R.color.colorPrimaryDark))
                             )
-                            .padding(start = 25.dp, end = 25.dp, top = 15.dp, bottom = 15.dp),
-                        color = colorResource(id = R.color.colorPrimaryDark)
+                            .padding(10.dp)
+                            .fillMaxWidth()
+                            .weight(1f),
+                        color = colorResource(id = R.color.colorPrimaryDark),
+                        textAlign = TextAlign.Center
                     )
+                    Spacer(modifier = Modifier.padding(10.dp))
                     Text(
                         text = "Video",
                         modifier = Modifier
                             .border(
                                 BorderStroke(1.dp, colorResource(id = R.color.dark_gray))
                             )
-                            .padding(start = 25.dp, end = 25.dp, top = 15.dp, bottom = 15.dp),
-                        color = colorResource(id = R.color.extra_dark_gray)
+                            .padding(10.dp)
+                            .fillMaxWidth()
+                            .weight(1f),
+                        color = colorResource(id = R.color.extra_dark_gray),
+                        textAlign = TextAlign.Center
                     )
                 }
                 var title by remember { mutableStateOf("") }
