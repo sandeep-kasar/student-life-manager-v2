@@ -3,7 +3,7 @@ package com.studentlifemanager.ui.expense
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import com.studentlifemanager.data.model.ExpenseData
 import com.studentlifemanager.data.model.ExpenseDate
 import com.studentlifemanager.data.model.ExpenseHeader

@@ -1,4 +1,4 @@
-package com.studentlifemanager.data.entity
+package com.studentlifemanager.database.data.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

@@ -19,13 +19,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["room.schemaLocation"] =
-                    "$projectDir/schemas"
-            }
-        }
     }
 
     buildTypes {
@@ -80,6 +73,7 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation(project(mapOf("path" to ":pin")))
+    implementation(project(mapOf("path" to ":database")))
     implementation("androidx.compose.material3:material3")
     //implementation("uk.co.markormesher:android-fab:2.5.0")
 }

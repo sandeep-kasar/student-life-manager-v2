@@ -1,8 +1,8 @@
 package com.studentlifemanager.ui.expense
 
 import androidx.annotation.WorkerThread
-import com.studentlifemanager.data.dao.ExpenseDao
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.dao.ExpenseDao
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import javax.inject.Inject
 
 /**

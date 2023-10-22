@@ -1,9 +1,9 @@
-package com.studentlifemanager.data.module
+package com.studentlifemanager.database.data.module
 
 import android.content.Context
 import androidx.room.Room
-import com.studentlifemanager.data.database.AppDatabase
-import com.studentlifemanager.utils.Constant.DATABASE_NAME
+import com.studentlifemanager.database.data.database.AppDatabase
+import com.studentlifemanager.database.utils.Constant.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

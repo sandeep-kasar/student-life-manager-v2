@@ -1,6 +1,6 @@
 package com.studentlifemanager.ui.expense
 
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 
 /**
  * This is the interface for Expense Fragment

@@ -1,7 +1,7 @@
-package com.studentlifemanager.data.module
+package com.studentlifemanager.database.data.module
 
-import com.studentlifemanager.data.dao.ExpenseDao
-import com.studentlifemanager.data.database.AppDatabase
+import com.studentlifemanager.database.data.dao.ExpenseDao
+import com.studentlifemanager.database.data.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

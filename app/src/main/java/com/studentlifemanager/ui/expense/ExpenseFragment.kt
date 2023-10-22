@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studentlifemanager.R
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import com.studentlifemanager.databinding.FragmentMyexpenseBinding
 import com.studentlifemanager.ui.MainViewModel
 import com.studentlifemanager.utils.IRecyclerViewClickListener

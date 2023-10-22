@@ -10,7 +10,7 @@
 
         <variable
             name="item"
-            type="com.studentlifemanager.data.entity.ExpenseEntity" />
+            type="com.studentlifemanager.database.data.entity.ExpenseEntity" />
     </data>
 
     <LinearLayout

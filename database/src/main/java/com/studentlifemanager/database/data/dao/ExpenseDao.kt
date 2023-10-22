@@ -1,11 +1,10 @@
-package com.studentlifemanager.data.dao
+package com.studentlifemanager.database.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.studentlifemanager.data.entity.ExpenseEntity
-import kotlinx.coroutines.flow.Flow
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 
 /**
  * Dao interface for my expense operation
