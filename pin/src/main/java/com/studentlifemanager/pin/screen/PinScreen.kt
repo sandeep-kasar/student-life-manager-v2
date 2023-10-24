@@ -69,7 +69,9 @@ fun PinScreen(
             ) {
                 when (uiState) {
                     is Success -> {
-                        LazyColumn() {
+                        LazyColumn(
+                            verticalArrangement = Arrangement.spacedBy(10.dp),
+                        ) {
                             items((uiState as Success).pinList) {
                                 PinItem(it)
                             }

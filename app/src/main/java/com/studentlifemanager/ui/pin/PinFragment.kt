@@ -15,12 +15,12 @@ import com.studentlifemanager.databinding.FragmentPinBinding
 import com.studentlifemanager.pin.screen.PinScreen
 import com.studentlifemanager.pin.theme.StudentLifeManagerV2Theme
 import com.studentlifemanager.ui.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PinFragment : Fragment() {
     private var _binding: FragmentPinBinding? = null
     private val binding get() = _binding
-
-    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

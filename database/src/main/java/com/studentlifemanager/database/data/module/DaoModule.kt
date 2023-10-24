@@ -1,6 +1,7 @@
 package com.studentlifemanager.database.data.module
 
 import com.studentlifemanager.database.data.dao.ExpenseDao
+import com.studentlifemanager.database.data.dao.PinDao
 import com.studentlifemanager.database.data.database.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -16,4 +17,9 @@ class DaoModule {
     fun provideExpenseDao(
         appDatabase: AppDatabase
     ): ExpenseDao = appDatabase.myExpenseDao()
+
+    @Provides
+    fun providePinDao(
+        appDatabase: AppDatabase
+    ): PinDao = appDatabase.myPinDao()
 }

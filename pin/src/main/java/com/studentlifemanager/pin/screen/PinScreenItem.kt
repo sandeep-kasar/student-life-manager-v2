@@ -3,26 +3,29 @@ package com.studentlifemanager.pin.screen
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Send
-import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,9 +39,10 @@ import java.util.Date
 @Composable
 fun PinItem(pinEntity: PinEntity) {
     Column(
-        modifier = Modifier.border(
-            BorderStroke(1.dp, color = Color.LightGray)
-        )
+        modifier = Modifier
+            .border(
+                BorderStroke(1.dp, color = Color.LightGray)
+            )
     ) {
         Row(
             modifier = Modifier
@@ -69,7 +73,8 @@ fun PinItem(pinEntity: PinEntity) {
         Row(
             modifier = Modifier
                 .height(30.dp)
-                .fillMaxSize(),
+                .fillMaxSize()
+                .padding(top = 5.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
@@ -91,7 +96,7 @@ fun PinItem(pinEntity: PinEntity) {
 
         Row(
             modifier = Modifier
-                .height(30.dp)
+                .heightIn(max = 50.dp)
                 .fillMaxSize(),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -102,14 +107,20 @@ fun PinItem(pinEntity: PinEntity) {
                 tint = Color.Gray
 
             )
-            Text(
-                text = pinEntity.pnLink,
-                modifier = Modifier.padding(end = 15.dp),
+            ClickableText(
+                text = buildAnnotatedString {
+                    pushStringAnnotation(tag = "Link", annotation = pinEntity.pnLink)
+                    withStyle(style = SpanStyle(color = MaterialTheme.colorScheme.primary)) {
+                        append(pinEntity.pnLink)
+                    }
+                },
+                modifier = Modifier
+                    .padding(end = 15.dp),
                 style = TextStyle(
                     fontSize = 14.sp,
                     color = Color.DarkGray
                 ),
-                fontWeight = FontWeight.Normal
+                onClick = {}
             )
         }
 
@@ -135,25 +146,6 @@ fun PinItem(pinEntity: PinEntity) {
                 ),
                 fontWeight = FontWeight.Normal
             )
-            Row(
-                horizontalArrangement = Arrangement.End,
-                modifier = Modifier
-                    .padding(start = 10.dp, end = 20.dp, top = 10.dp, bottom = 10.dp)
-                    .fillMaxSize()
-            ) {
-                Icon(
-                    Icons.Filled.Share,
-                    contentDescription = "",
-                    tint = Color.Gray,
-                    modifier = Modifier.padding(end = 30.dp)
-                )
-                Icon(
-                    Icons.Filled.ExitToApp,
-                    contentDescription = "",
-                    tint = Color.Gray
-                )
-
-            }
         }
     }
 }

@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">pin</string>
+    <string name="app_name" translatable="false">pin</string>
+    <string name="pin_type_web" translatable="false">Website</string>
 </resources>
