@@ -1,6 +1,6 @@
-package com.studentlifemanager.utils
+package com.studentlifemanager.database.utils
 
-import com.studentlifemanager.utils.Constant.DD_MMM_YYYY
+import com.studentlifemanager.database.utils.Constant.DD_MMM_YYYY
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -12,7 +12,7 @@ import java.util.Locale
  */
 object DateUtil {
 
-    fun getTodayDate(): String? {
+    fun getTodayDate(): String {
         return SimpleDateFormat(DD_MMM_YYYY).format(Calendar.getInstance().time)
     }
 
@@ -27,7 +27,7 @@ object DateUtil {
         inputFormat: String?,
         outputFormat: String?,
         inputDate: String?
-    ): String? {
+    ): String {
         var parsed: Date? = null
         var outputDate = ""
         val date_input = SimpleDateFormat(inputFormat, Locale.getDefault())
