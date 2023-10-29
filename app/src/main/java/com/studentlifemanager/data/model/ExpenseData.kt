@@ -1,6 +1,6 @@
 package com.studentlifemanager.data.model
 
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import com.studentlifemanager.ui.expense.EXP_HEADER
 
 data class ExpenseDate(

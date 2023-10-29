@@ -1,0 +1,122 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "1178420f81bc1159a17ae7c6df3ad126",
+    "entities": [
+      {
+        "tableName": "my_expense",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ex_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, `ex_amount` INTEGER NOT NULL, `ex_title` TEXT NOT NULL, `ex_note` TEXT NOT NULL, `ex_type` INTEGER NOT NULL, `ex_date` TEXT NOT NULL, `ex_month` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "exId",
+            "columnName": "ex_id",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "exAmount",
+            "columnName": "ex_amount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exTitle",
+            "columnName": "ex_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exNote",
+            "columnName": "ex_note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exType",
+            "columnName": "ex_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exDate",
+            "columnName": "ex_date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exMonth",
+            "columnName": "ex_month",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "ex_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "pin",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`pn_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL DEFAULT 0, `pn_title` TEXT NOT NULL, `pn_subject` TEXT NOT NULL, `pn_link` TEXT NOT NULL, `pn_link_type` INTEGER NOT NULL, `pn_date` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "pnID",
+            "columnName": "pn_id",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "pnTitle",
+            "columnName": "pn_title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pnSubject",
+            "columnName": "pn_subject",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pnLink",
+            "columnName": "pn_link",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pnLinkType",
+            "columnName": "pn_link_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pnDate",
+            "columnName": "pn_date",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "pn_id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1178420f81bc1159a17ae7c6df3ad126')"
+    ]
+  }
+}

@@ -35,12 +35,16 @@ class MainActivity : AppCompatActivity(), IViewCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         setSupportActionBar(findViewById(R.id.toolbar))
 
         //setup bottom navigation
         binding.navView.setupWithNavController(
             findNavController(R.id.nav_host_fragment_activity_main)
         )
+
+        // bing variables
+        binding.callback = this
 
         // below toolbar, date and year is visible by default we are showing current year nad month
         // this function is used for this purpose

@@ -10,9 +10,9 @@
 
     <item
         app:showAsAction="always"
-        android:id="@+id/action_backup"
+        android:id="@+id/action_profile"
         android:icon="@drawable/ic_account"
-        android:title="Backup" />
+        android:title="profile" />
 
 
 </menu>

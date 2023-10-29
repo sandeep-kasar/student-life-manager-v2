@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studentlifemanager.R
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import com.studentlifemanager.databinding.FragmentMyexpenseBinding
 import com.studentlifemanager.ui.MainViewModel
 import com.studentlifemanager.utils.IRecyclerViewClickListener
@@ -84,9 +84,6 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
             it.adapter = expenseAdapter
         }
 
-        // get expense data from database and display on screen
-        expenseViewModel.getExpenseData(mMonth)
-
     }
 
     /**
@@ -95,6 +92,8 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
      * selectedMonth, expenseData
      */
     private fun setupObserver() {
+
+        expenseViewModel.getExpenseData(mMonth)
 
         mainViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
             mMonth = month

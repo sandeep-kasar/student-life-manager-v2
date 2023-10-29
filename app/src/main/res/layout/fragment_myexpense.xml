@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.notes.NotesFragment">
+        tools:context=".ui.pin.PinFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dimen_15"
             android:layout_marginBottom="@dimen/dimen_15"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="@{()-> callback.viewCallBack()}"
             android:src="@drawable/ic_plus"
             app:fabSize="normal"
