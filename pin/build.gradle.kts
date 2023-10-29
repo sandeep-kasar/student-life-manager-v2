@@ -69,7 +69,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation(project(mapOf("path" to ":database")))
+    implementation(project(mapOf("path" to ":common")))
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")

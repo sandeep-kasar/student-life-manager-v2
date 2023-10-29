@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "student-life-manager-v2"
 include(":app")
 include(":pin")
-include(":database")
+include(":common")
