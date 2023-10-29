@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_notes"
-        android:name="com.studentlifemanager.ui.notes.NotesFragment"
+        android:name="com.studentlifemanager.ui.pin.PinFragment"
         android:label="@string/title_Notes"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_pin" />
 
     <fragment
         android:id="@+id/navigation_task"

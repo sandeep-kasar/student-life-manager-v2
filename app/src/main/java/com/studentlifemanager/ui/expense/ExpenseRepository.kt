@@ -1,60 +1,60 @@
 package com.studentlifemanager.ui.expense
 
 import androidx.annotation.WorkerThread
-import com.studentlifemanager.data.database.AppRoomDatabase
-import com.studentlifemanager.data.entity.ExpenseEntity
-import kotlinx.coroutines.flow.Flow
+import com.studentlifemanager.database.data.dao.ExpenseDao
+import com.studentlifemanager.database.data.entity.ExpenseEntity
+import javax.inject.Inject
 
 /**
  * This is the repository class, whatever data needed in the app
  * is called from here only, Like insert data, get data etc.
  *
- * @param appDatabase : This is the room database instance
+ * @param expenseDao : This is the ExpenseDao instance
  *
  *
  * @author SandeepK
  * @version 2.0
  *
  * */
-class ExpenseRepository(private val appDatabase: AppRoomDatabase) {
+class ExpenseRepository @Inject constructor(private val expenseDao: ExpenseDao) {
 
     // By default Room runs suspend queries off the main thread, therefore, we don't need to
     // implement anything else to ensure we're not doing long running database work
     // off the main thread.
     @WorkerThread
     suspend fun insert(expenseEntity: ExpenseEntity) {
-        appDatabase.myExpenseDao().insertMyExpense(expenseEntity)
+        expenseDao.insertMyExpense(expenseEntity)
     }
 
     @WorkerThread
     suspend fun getIncomeOrExpenseTotalByMonth(month: Int, cashType: Int): Long {
-        return appDatabase.myExpenseDao().getIncomeOrExpenseTotalByMonth(month, cashType)
+        return expenseDao.getIncomeOrExpenseTotalByMonth(month, cashType)
     }
 
     @WorkerThread
     suspend fun getAllDatesInMonth(month: Int): List<String> {
-        return appDatabase.myExpenseDao().getAllDatesInMonth(month)
+        return expenseDao.getAllDatesInMonth(month)
     }
 
     @WorkerThread
     suspend fun getExpenseTotalForDate(date: String): Long {
-        return appDatabase.myExpenseDao().getExpenseTotalForDate(date)
+        return expenseDao.getExpenseTotalForDate(date)
     }
 
     @WorkerThread
     suspend fun getExpensesByDate(date: String): List<ExpenseEntity> {
-        return appDatabase.myExpenseDao().getExpensesByDate(date)
+        return expenseDao.getExpensesByDate(date)
     }
 
     @WorkerThread
     suspend fun deleteExpenseById(exId: Int) {
-        appDatabase.myExpenseDao().deleteExpenseById(exId)
+        expenseDao.deleteExpenseById(exId)
     }
 
     @WorkerThread
     suspend fun updateExpenseById(
         amount: Long, title: String, note: String, date: String, exId: Int
     ) {
-        appDatabase.myExpenseDao().updateExpenseById(amount, title, note, date, exId)
+        expenseDao.updateExpenseById(amount, title, note, date, exId)
     }
 }

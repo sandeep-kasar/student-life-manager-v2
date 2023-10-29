@@ -10,7 +10,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.FragmentActivity
 import com.studentlifemanager.R
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
+import com.studentlifemanager.database.utils.DateUtil
 import com.studentlifemanager.databinding.LayoutDialogExpenseBinding
 import com.studentlifemanager.utils.Constant
 import com.studentlifemanager.utils.Constant.DD_MMM_YYYY
@@ -18,7 +19,6 @@ import com.studentlifemanager.utils.Constant.DD_MM_YYYY
 import com.studentlifemanager.utils.Constant.EMPTY
 import com.studentlifemanager.utils.Constant.EXPENSE
 import com.studentlifemanager.utils.Constant.INCOME
-import com.studentlifemanager.utils.DateUtil
 import com.studentlifemanager.utils.ViewExtensions.gone
 import com.studentlifemanager.utils.ViewExtensions.hideKeyboard
 import com.studentlifemanager.utils.ViewExtensions.visible

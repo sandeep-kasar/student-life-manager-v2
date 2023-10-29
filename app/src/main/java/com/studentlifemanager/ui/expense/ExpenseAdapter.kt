@@ -3,14 +3,10 @@ package com.studentlifemanager.ui.expense
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.studentlifemanager.data.entity.ExpenseEntity
 import com.studentlifemanager.data.model.ExpenseData
-import com.studentlifemanager.data.model.ExpenseDate
-import com.studentlifemanager.data.model.ExpenseHeader
 import com.studentlifemanager.databinding.LayoutExpBodyBinding
 import com.studentlifemanager.databinding.LayoutExpDateBinding
 import com.studentlifemanager.databinding.LayoutExpHeaderBinding
-import com.studentlifemanager.utils.BindableAdapter
 import com.studentlifemanager.utils.IRecyclerViewClickListener
 
 

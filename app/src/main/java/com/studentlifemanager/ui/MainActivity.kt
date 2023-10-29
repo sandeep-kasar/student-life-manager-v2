@@ -1,7 +1,6 @@
 package com.studentlifemanager.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -13,6 +12,7 @@ import com.studentlifemanager.utils.Constant.FULL_MONTH
 import com.studentlifemanager.utils.Constant.FULL_YEAR
 import com.studentlifemanager.utils.IViewCallback
 import com.studentlifemanager.utils.MonthYearPickerDialog
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.time.ZoneId
@@ -26,20 +26,25 @@ import java.util.Date
  * @author SandeepK
  * @version 2.0
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), IViewCallback {
 
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private val viewModel: MainViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         setSupportActionBar(findViewById(R.id.toolbar))
 
         //setup bottom navigation
         binding.navView.setupWithNavController(
             findNavController(R.id.nav_host_fragment_activity_main)
         )
+
+        // bing variables
+        binding.callback = this
 
         // below toolbar, date and year is visible by default we are showing current year nad month
         // this function is used for this purpose
@@ -63,7 +68,7 @@ class MainActivity : AppCompatActivity(), IViewCallback {
     private fun selectMonth() {
         MonthYearPickerDialog(Date()).apply {
             setListener { view, year, month, dayOfMonth ->
-                viewModel.selectItem(month + 1)
+                mainViewModel.selectItem(month + 1)
                 binding.tvMonth.text = getMonth()[month]
                 binding.tvYear.text = year.toString()
             }
@@ -84,7 +89,7 @@ class MainActivity : AppCompatActivity(), IViewCallback {
         val localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
         binding.tvMonth.text = monthFormat.format(date)
         binding.tvYear.text = yearFormat.format(date)
-        viewModel.selectItem(localDate.monthValue)
+        mainViewModel.selectItem(localDate.monthValue)
     }
 
 }

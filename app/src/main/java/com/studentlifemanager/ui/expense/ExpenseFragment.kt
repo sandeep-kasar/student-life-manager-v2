@@ -8,15 +8,15 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studentlifemanager.R
-import com.studentlifemanager.data.database.AppRoomDatabase
-import com.studentlifemanager.data.entity.ExpenseEntity
+import com.studentlifemanager.database.data.entity.ExpenseEntity
 import com.studentlifemanager.databinding.FragmentMyexpenseBinding
 import com.studentlifemanager.ui.MainViewModel
 import com.studentlifemanager.utils.IRecyclerViewClickListener
 import com.studentlifemanager.utils.IViewCallback
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
 
@@ -29,17 +29,17 @@ import java.util.Calendar
  * @version 2.0
  * */
 
-class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperation, IViewCallback {
-
-    private lateinit var _binding: FragmentMyexpenseBinding
-    private val binding get() = _binding
-    private lateinit var roomDatabase: AppRoomDatabase
-
-    private lateinit var expenseAdapter: ExpenseAdapter
-    private val mainViewModel: MainViewModel by activityViewModels()
-    private val expenseViewModel by lazy { ExpenseViewModel(ExpenseRepository(roomDatabase)) }
+@AndroidEntryPoint
+class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
+    IExpenseOperation, IViewCallback {
 
     private var mMonth: Int = 1
+
+    private lateinit var _binding: FragmentMyexpenseBinding
+    private lateinit var expenseAdapter: ExpenseAdapter
+
+    private val mainViewModel: MainViewModel by viewModels()
+    private val expenseViewModel by viewModels<ExpenseViewModel>()
 
     init {
         // select current month for future
@@ -52,14 +52,11 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperatio
         _binding = FragmentMyexpenseBinding.inflate(inflater, container, false)
         _binding.lifecycleOwner = viewLifecycleOwner
         _binding.callback = this
-        return binding?.root
+        return _binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // init
-        roomDatabase = context?.applicationContext?.let { AppRoomDatabase.getDatabase(it) }!!
 
         // setup adapter, recyclerview
         setupUI()
@@ -87,9 +84,6 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperatio
             it.adapter = expenseAdapter
         }
 
-        // get expense data from database and display on screen
-        expenseViewModel.getExpenseData(mMonth)
-
     }
 
     /**
@@ -98,6 +92,8 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener, IExpenseOperatio
      * selectedMonth, expenseData
      */
     private fun setupObserver() {
+
+        expenseViewModel.getExpenseData(mMonth)
 
         mainViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
             mMonth = month
