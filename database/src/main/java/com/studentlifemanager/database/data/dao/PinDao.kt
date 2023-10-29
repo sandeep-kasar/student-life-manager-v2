@@ -20,6 +20,6 @@ interface PinDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPin(pinEntity: PinEntity)
 
-    @Query(value = "SELECT * FROM pin")
+    @Query(value = "SELECT * FROM pin ORDER BY pn_id DESC")
     fun getAllPins(): Flow<List<PinEntity>>
 }

@@ -1,5 +1,6 @@
 package com.studentlifemanager.pin.utility
 
+import android.util.Patterns
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -91,8 +93,7 @@ fun CustomDialog(
                         ) else BorderStroke(1.dp, colorResource(id = R.color.dark_gray)),
                     ) {
                         Text(
-                            text = "Website",
-//                            text = stringResource(id = R.string.pin_type_web),
+                            text = stringResource(id = R.string.pin_type_web),
                             color = if (selectedWeb.value) colorResource(id = R.color.colorPrimaryDark) else colorResource(
                                 id = R.color.extra_dark_gray
                             ),
@@ -121,8 +122,7 @@ fun CustomDialog(
                         ) else BorderStroke(1.dp, colorResource(id = R.color.dark_gray)),
                     ) {
                         Text(
-                            text = "Video",
-//                            text = stringResource(id = R.string.pin_type_web),
+                            text = stringResource(id = R.string.pin_type_video),
                             color = if (selectedVideo.value) colorResource(id = R.color.colorPrimaryDark) else colorResource(
                                 id = R.color.extra_dark_gray
                             ),
@@ -141,7 +141,7 @@ fun CustomDialog(
                     onValueChange = { title = it },
                     placeholder = {
                         Text(
-                            text = "Title",
+                            text = stringResource(id = R.string.pin_dia_title),
                             color = Color.Gray,
                         )
                     },
@@ -154,7 +154,7 @@ fun CustomDialog(
                         if (isEmpty.value && title.isEmpty()) {
                             Text(
                                 modifier = Modifier.fillMaxWidth(),
-                                text = "Please enter the title",
+                                text = stringResource(id = R.string.pin_dia_validate_title),
                                 color = MaterialTheme.colorScheme.error
                             )
                         }
@@ -171,7 +171,7 @@ fun CustomDialog(
                     onValueChange = { subject = it },
                     placeholder = {
                         Text(
-                            text = "Subject",
+                            text = stringResource(id = R.string.pin_dia_subject),
                             color = Color.Gray,
                         )
                     },
@@ -184,13 +184,14 @@ fun CustomDialog(
                         if (isEmpty.value && subject.isEmpty()) {
                             Text(
                                 modifier = Modifier.fillMaxWidth(),
-                                text = "Please enter the subject",
+                                text = stringResource(id = R.string.pin_dia_validate_subject),
                                 color = MaterialTheme.colorScheme.error
                             )
                         }
                     }
                 )
                 var link by remember { mutableStateOf("") }
+                val isValidLink = Patterns.WEB_URL.matcher(link).matches()
                 TextField(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -200,7 +201,7 @@ fun CustomDialog(
                     onValueChange = { link = it },
                     placeholder = {
                         Text(
-                            text = "https://www.dictionary.com/browse/example",
+                            text = stringResource(id = R.string.pin_dia_link),
                             color = Color.Gray,
                         )
                     },
@@ -210,10 +211,10 @@ fun CustomDialog(
                         containerColor = Color.White,
                     ),
                     supportingText = {
-                        if (isEmpty.value && link.isEmpty()) {
+                        if (isEmpty.value && (link.isEmpty() || !isValidLink)) {
                             Text(
                                 modifier = Modifier.fillMaxWidth(),
-                                text = "Please enter the link",
+                                text = stringResource(id = R.string.pin_dia_validate_link),
                                 color = MaterialTheme.colorScheme.error
                             )
                         }
@@ -232,7 +233,7 @@ fun CustomDialog(
                         Modifier.padding(end = 35.dp)
                     ) {
                         Text(
-                            text = "Cancel",
+                            text = stringResource(id = R.string.pin_dia_cancel),
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.colorPrimaryDark)
@@ -242,7 +243,7 @@ fun CustomDialog(
                     }
                     TextButton(
                         onClick = {
-                            if (title.isEmpty() || subject.isEmpty() || link.isEmpty()) {
+                            if (title.isEmpty() || subject.isEmpty() || link.isEmpty() || !isValidLink) {
                                 isEmpty.value = true
                             } else {
                                 val pinType = if (selectedWeb.value) PIN_WEB else PIN_VIDEO
@@ -261,7 +262,7 @@ fun CustomDialog(
                         Modifier.padding(end = 25.dp)
                     ) {
                         Text(
-                            text = "Ok",
+                            text = stringResource(id = R.string.pin_dia_ok),
                             style = TextStyle(
                                 fontSize = 16.sp,
                                 color = colorResource(id = R.color.colorPrimaryDark)
@@ -277,10 +278,10 @@ fun CustomDialog(
 
 @Preview
 @Composable
-fun preview() {
+fun Preview() {
     CustomDialog(
         pinViewModel = viewModel(),
         value = "aaa",
-        setShowDialog = { true },
-        setValue = { true })
+        setShowDialog = { },
+        setValue = { })
 }

@@ -29,6 +29,8 @@ class PinViewModel @Inject constructor(private val repository: PinRepository) : 
 
     private val viewModelSate = MutableStateFlow(PinScreenUiState(PinUiState.Loading))
 
+    // response is returned in the form of state
+    // in compose state is used to update the UI
     val uiState = viewModelSate.map {
         it.pinUiState
     }.stateIn(
@@ -58,7 +60,7 @@ class PinViewModel @Inject constructor(private val repository: PinRepository) : 
      * To get pin data, which will in be the list
      * of PinEntity model
      */
-    private fun getPinData() {
+    fun getPinData() {
 
         // get pin data
         viewModelScope.launch(Dispatchers.IO) {

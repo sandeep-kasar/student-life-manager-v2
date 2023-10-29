@@ -12,4 +12,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="extra_dark_gray">#4F5458</color>
     <color name="dark_gray">#a7acaf</color>
+    <color name="light_pin_title">#F6F8F9</color>
 </resources>

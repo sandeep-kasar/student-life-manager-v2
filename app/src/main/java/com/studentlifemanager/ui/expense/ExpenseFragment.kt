@@ -93,6 +93,8 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
      */
     private fun setupObserver() {
 
+        expenseViewModel.getExpenseData(mMonth)
+
         mainViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
             mMonth = month
             expenseViewModel.getExpenseData(mMonth)

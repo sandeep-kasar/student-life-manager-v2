@@ -32,21 +32,26 @@ import com.studentlifemanager.pin.R
 import com.studentlifemanager.pin.screen.PinViewModel.PinUiState.Success
 import com.studentlifemanager.pin.utility.CustomDialog
 
+/**
+ * Compose screen for pin item listing
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun PinScreen(
     pinViewModel: PinViewModel = hiltViewModel()
 ) {
+    // remember dialog state
     val showDialog = remember { mutableStateOf(false) }
     if (showDialog.value) {
-        CustomDialog(pinViewModel, value = "", setShowDialog = {
-            showDialog.value = it
-        }) {
+        CustomDialog(pinViewModel, value = "", setShowDialog = { showDialog.value = it }) {
             Log.i("HomePage", "HomePage : $it")
         }
     }
+
     Scaffold(floatingActionButton = {
+
+        // floating action button to open dialog in order to add pin
         FloatingActionButton(
             onClick = { showDialog.value = true },
             shape = CircleShape,
@@ -57,10 +62,12 @@ fun PinScreen(
             Icon(Icons.Filled.Add, "Small floating action button.")
         }
     }, content = {
-        // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
         ) {
+            // access local data from database
+            pinViewModel.getPinData()
+            // observe response as state
             val uiState by pinViewModel.uiState.collectAsState()
             Column(
                 modifier = Modifier.padding(5.dp),
@@ -79,7 +86,7 @@ fun PinScreen(
                     }
 
                     is Error -> {
-
+                        // pending
                     }
 
                     else -> {}
