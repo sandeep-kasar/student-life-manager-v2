@@ -74,6 +74,6 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation(project(mapOf("path" to ":pin")))
     implementation(project(mapOf("path" to ":common")))
+    implementation(project(mapOf("path" to ":expense")))
     implementation("androidx.compose.material3:material3")
-    //implementation("uk.co.markormesher:android-fab:2.5.0")
 }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">sdlm</string>
     <string name="title_expense">Expense</string>
-    <string name="title_Notes">Notes</string>
+    <string name="title_pin">Pin</string>
     <string name="title_task">Task</string>
     <string name="hint_amount">Amount</string>
     <string name="hint_spend_for">Spend for</string>

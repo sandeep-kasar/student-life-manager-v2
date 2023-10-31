@@ -7,7 +7,7 @@
 
         <variable
             name="callback"
-            type="com.studentlifemanager.utils.IViewCallback" />
+            type="com.studentlifemanager.expense.utils.IViewCallback" />
 
     </data>
 

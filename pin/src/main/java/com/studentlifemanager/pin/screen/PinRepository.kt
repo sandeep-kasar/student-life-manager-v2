@@ -1,10 +1,8 @@
 package com.studentlifemanager.pin.screen
 
 import androidx.annotation.WorkerThread
-import com.studentlifemanager.database.data.dao.ExpenseDao
-import com.studentlifemanager.database.data.dao.PinDao
-import com.studentlifemanager.database.data.entity.ExpenseEntity
-import com.studentlifemanager.database.data.entity.PinEntity
+import com.studentlifemanager.common.data.dao.PinDao
+import com.studentlifemanager.common.data.entity.PinEntity
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

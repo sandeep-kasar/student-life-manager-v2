@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.studentlifemanager.database.data.entity.PinEntity
+import com.studentlifemanager.common.data.entity.PinEntity
 import com.studentlifemanager.pin.R
 import com.studentlifemanager.pin.screen.PinViewModel
 import com.studentlifemanager.pin.utility.Constant.PIN_VIDEO
