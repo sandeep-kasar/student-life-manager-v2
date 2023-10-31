@@ -9,4 +9,5 @@ package com.studentlifemanager.expense.utils
  */
 interface IViewCallback {
     fun viewCallBack()
+    fun onClickDate()
 }

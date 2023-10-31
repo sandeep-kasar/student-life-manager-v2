@@ -1,5 +1,6 @@
 package com.studentlifemanager.expense.ui
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -27,6 +28,10 @@ import javax.inject.Inject
 @HiltViewModel
 class ExpenseViewModel @Inject constructor(private val repository: ExpenseRepository) :
     ViewModel() {
+
+    private val _selectedMonth = MutableLiveData<Int>()
+
+    val selectedMonth: LiveData<Int> get() = _selectedMonth
 
     private val expenseDataList = ArrayList<ExpenseData>()
 
@@ -135,5 +140,14 @@ class ExpenseViewModel @Inject constructor(private val repository: ExpenseReposi
             }
             expenseData.postValue(expenseDataList)
         }
+    }
+
+    /**
+     *   on select of month, update selectedMonth
+     *   this variable is used to communicate month value across different fragments
+     *   Ex. ExpenseFragment
+     */
+    fun selectItem(month: Int) {
+        _selectedMonth.value = month
     }
 }

@@ -11,13 +11,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.studentlifemanager.common.data.entity.ExpenseEntity
-import com.studentlifemanager.common.utils.MainViewModel
+import com.studentlifemanager.common.utils.Constant
 import com.studentlifemanager.expense.R
 import com.studentlifemanager.expense.databinding.FragmentMyexpenseBinding
 import com.studentlifemanager.expense.utils.IViewCallback
+import com.studentlifemanager.expense.utils.MonthYearPickerDialog
 import com.studentlifemanager.utils.IRecyclerViewClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.time.ZoneId
 import java.util.Calendar
+import java.util.Date
 
 
 /**
@@ -35,11 +40,9 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
 
     private var mMonth: Int = 1
 
+    private val expenseViewModel by viewModels<ExpenseViewModel>()
     private lateinit var _binding: FragmentMyexpenseBinding
     private lateinit var expenseAdapter: ExpenseAdapter
-
-    private val mainViewModel: MainViewModel by viewModels()
-    private val expenseViewModel by viewModels<ExpenseViewModel>()
 
     init {
         // select current month for future
@@ -84,6 +87,10 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
             it.adapter = expenseAdapter
         }
 
+        // below toolbar, date and year is visible by default we are showing current year nad month
+        // this function is used for this purpose
+        setDefaultDate()
+
     }
 
     /**
@@ -95,7 +102,7 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
 
         expenseViewModel.getExpenseData(mMonth)
 
-        mainViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
+        expenseViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
             mMonth = month
             expenseViewModel.getExpenseData(mMonth)
         }
@@ -173,10 +180,49 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
     }
 
     /**
-     * call back function to handle user click on fab icon
+     * show expense input dialog
      */
     override fun viewCallBack() {
         ExpenseInputDialogOperations(requireActivity(), this).showDialog()
+    }
+
+    /**
+     * This is call back function for view click in order to select month or year
+     *
+     */
+    override fun onClickDate() {
+        selectDate()
+    }
+
+    /**
+     * When user click on month or year this function will open a date picker dialog
+     * Here user can select year or month in order to get respective expenses
+     */
+    private fun selectDate() {
+        MonthYearPickerDialog(Date()).apply {
+            setListener { view, year, month, dayOfMonth ->
+                expenseViewModel.selectItem(month + 1)
+                _binding.tvMonth.text = getMonth()[month]
+                _binding.tvYear.text = year.toString()
+            }
+            activity?.supportFragmentManager?.let { show(it, Constant.DATE_PICKER_TAG) }
+        }
+    }
+
+    /**
+     * below toolbar, date and year is visible
+     * by default we are showing current year nad month
+     *
+     * this function is used for this purpose
+     */
+    private fun setDefaultDate() {
+        val monthFormat: DateFormat = SimpleDateFormat(Constant.FULL_MONTH)
+        val yearFormat: DateFormat = SimpleDateFormat(Constant.FULL_YEAR)
+        val date = Date()
+        val localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+        _binding.tvMonth.text = monthFormat.format(date)
+        _binding.tvYear.text = yearFormat.format(date)
+        expenseViewModel.selectItem(localDate.monthValue)
     }
 
 }
