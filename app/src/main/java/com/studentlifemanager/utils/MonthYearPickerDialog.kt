@@ -5,7 +5,7 @@ import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-import com.studentlifemanager.R
+import com.studentlifemanager.common.R
 import com.studentlifemanager.databinding.DialogMonthYearPickerBinding
 import java.util.Calendar
 import java.util.Date

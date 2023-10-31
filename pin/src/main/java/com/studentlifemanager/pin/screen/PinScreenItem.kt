@@ -40,7 +40,7 @@ import com.studentlifemanager.common.data.entity.PinEntity
 import com.studentlifemanager.common.utils.Constant.DD_MMM_YYYY
 import com.studentlifemanager.common.utils.Constant.YYYY_MM_DD
 import com.studentlifemanager.common.utils.DateUtil
-import com.studentlifemanager.pin.R
+import com.studentlifemanager.common.R
 import java.util.Date
 
 /**

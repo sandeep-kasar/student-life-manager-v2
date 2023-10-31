@@ -31,4 +31,15 @@
     <string name="month_october">October</string>
     <string name="month_november">November</string>
     <string name="month_december">December</string>
+    <string name="pin_type_web">Website</string>
+    <string name="pin_type_video">Video</string>
+    <string name="pin_dia_title">Title</string>
+    <string name="pin_dia_subject">Subject</string>
+    <string name="pin_dia_cancel">Cancel</string>
+    <string name="pin_dia_ok">Ok</string>
+    <string name="pin_dia_link">https://www.example.com/</string>
+    <string name="pin_dia_validate_title">Please enter the title</string>
+    <string name="pin_dia_validate_subject">Please enter the subject</string>
+    <string name="pin_dia_validate_link">Please enter the link</string>
+    <string name="pin_dia_validate_link_msg">"Link is not valid"</string>
 </resources>

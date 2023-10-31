@@ -68,13 +68,14 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation(project(mapOf("path" to ":common")))
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     kapt("androidx.hilt:hilt-compiler:1.1.0-rc01")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    implementation(project(mapOf("path" to ":common")))
 
 
     //implementation ("androidx.compose.material:material-icons-extended:1.7.2")

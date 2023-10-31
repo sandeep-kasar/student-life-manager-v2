@@ -11,7 +11,7 @@ import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.FragmentActivity
 import com.studentlifemanager.common.data.entity.ExpenseEntity
 import com.studentlifemanager.common.utils.DateUtil
-import com.studentlifemanager.expense.R
+import com.studentlifemanager.common.R
 import com.studentlifemanager.expense.databinding.LayoutDialogExpenseBinding
 import com.studentlifemanager.utils.Constant
 import com.studentlifemanager.utils.Constant.DD_MMM_YYYY
