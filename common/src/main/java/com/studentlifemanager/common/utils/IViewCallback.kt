@@ -1,4 +1,4 @@
-package com.studentlifemanager.expense.utils
+package com.studentlifemanager.common.utils
 
 /**
  * This is the interface to handle view click

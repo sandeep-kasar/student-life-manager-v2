@@ -1,8 +1,9 @@
-package com.studentlifemanager.pin.screen
+package com.studentlifemanager.pin.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.studentlifemanager.common.data.entity.PinEntity
+import com.studentlifemanager.pin.repository.PinRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async

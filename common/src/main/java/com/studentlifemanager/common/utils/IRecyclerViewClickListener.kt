@@ -1,4 +1,4 @@
-package com.studentlifemanager.utils
+package com.studentlifemanager.common.utils
 
 /**
  * This is the interface to handle recyclerview row click

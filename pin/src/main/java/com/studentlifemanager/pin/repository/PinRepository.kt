@@ -1,4 +1,4 @@
-package com.studentlifemanager.pin.screen
+package com.studentlifemanager.pin.repository
 
 import androidx.annotation.WorkerThread
 import com.studentlifemanager.common.data.dao.PinDao

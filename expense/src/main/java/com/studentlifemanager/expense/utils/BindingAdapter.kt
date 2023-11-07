@@ -1,4 +1,4 @@
-package com.studentlifemanager.utils
+package com.studentlifemanager.expense.utils
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView

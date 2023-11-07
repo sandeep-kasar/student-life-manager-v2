@@ -1,4 +1,4 @@
-package com.studentlifemanager.expense.ui
+package com.studentlifemanager.expense.repository
 
 import androidx.annotation.WorkerThread
 import com.studentlifemanager.common.data.dao.ExpenseDao

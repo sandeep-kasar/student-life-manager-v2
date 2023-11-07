@@ -74,9 +74,5 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     kapt("androidx.hilt:hilt-compiler:1.1.0-rc01")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
     implementation(project(mapOf("path" to ":common")))
-
-
-    //implementation ("androidx.compose.material:material-icons-extended:1.7.2")
 }

@@ -6,7 +6,7 @@
 
         <variable
             name="callBack"
-            type="com.studentlifemanager.utils.IRecyclerViewClickListener" />
+            type="com.studentlifemanager.common.utils.IRecyclerViewClickListener" />
 
         <variable
             name="item"

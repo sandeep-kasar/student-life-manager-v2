@@ -1,4 +1,4 @@
-package com.studentlifemanager.expense.ui
+package com.studentlifemanager.expense.utils
 
 import android.app.DatePickerDialog
 import android.app.Dialog
@@ -12,13 +12,13 @@ import androidx.fragment.app.FragmentActivity
 import com.studentlifemanager.common.data.entity.ExpenseEntity
 import com.studentlifemanager.common.utils.DateUtil
 import com.studentlifemanager.common.R
+import com.studentlifemanager.common.utils.Constant
+import com.studentlifemanager.common.utils.Constant.DD_MMM_YYYY
+import com.studentlifemanager.common.utils.Constant.DD_MM_YYYY
+import com.studentlifemanager.common.utils.Constant.EMPTY
+import com.studentlifemanager.common.utils.Constant.EXPENSE
+import com.studentlifemanager.common.utils.Constant.INCOME
 import com.studentlifemanager.expense.databinding.LayoutDialogExpenseBinding
-import com.studentlifemanager.utils.Constant
-import com.studentlifemanager.utils.Constant.DD_MMM_YYYY
-import com.studentlifemanager.utils.Constant.DD_MM_YYYY
-import com.studentlifemanager.utils.Constant.EMPTY
-import com.studentlifemanager.utils.Constant.EXPENSE
-import com.studentlifemanager.utils.Constant.INCOME
 import com.studentlifemanager.utils.ViewExtensions.gone
 import com.studentlifemanager.utils.ViewExtensions.hideKeyboard
 import com.studentlifemanager.utils.ViewExtensions.visible
@@ -157,7 +157,7 @@ class ExpenseInputDialogOperations(
      * @param inputType - expense or income type
      */
     private fun setIncomeExpenseTab(binding: LayoutDialogExpenseBinding, inputType: Int) {
-        if (inputType == Constant.EXPENSE) {
+        if (inputType == EXPENSE) {
             binding.tvExpense.setTextColor(context.getColor(R.color.colorPrimaryDark))
             binding.tvExpense.setBackgroundResource(R.drawable.border_square_primary)
             binding.tvIncome.setTextColor(context.getColor(R.color.extra_dark_gray))

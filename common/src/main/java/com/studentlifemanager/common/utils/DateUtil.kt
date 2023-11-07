@@ -12,6 +12,9 @@ import java.util.Locale
  */
 object DateUtil {
 
+    /**
+     * This function calculates the today's date
+     */
     fun getTodayDate(): String {
         return SimpleDateFormat(DD_MMM_YYYY).format(Calendar.getInstance().time)
     }

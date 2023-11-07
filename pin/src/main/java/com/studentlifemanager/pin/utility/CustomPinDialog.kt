@@ -40,9 +40,9 @@ import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.studentlifemanager.common.data.entity.PinEntity
 import com.studentlifemanager.common.R
-import com.studentlifemanager.pin.screen.PinViewModel
-import com.studentlifemanager.pin.utility.Constant.PIN_VIDEO
-import com.studentlifemanager.pin.utility.Constant.PIN_WEB
+import com.studentlifemanager.common.utils.Constant.PIN_VIDEO
+import com.studentlifemanager.common.utils.Constant.PIN_WEB
+import com.studentlifemanager.pin.viewmodel.PinViewModel
 import java.util.Date
 
 @OptIn(ExperimentalMaterial3Api::class)

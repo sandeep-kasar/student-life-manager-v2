@@ -29,8 +29,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.studentlifemanager.common.R
-import com.studentlifemanager.pin.screen.PinViewModel.PinUiState.Success
+import com.studentlifemanager.pin.viewmodel.PinViewModel.PinUiState.Success
 import com.studentlifemanager.pin.utility.CustomDialog
+import com.studentlifemanager.pin.viewmodel.PinViewModel
 
 /**
  * Compose screen for pin item listing

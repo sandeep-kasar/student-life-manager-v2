@@ -1,4 +1,4 @@
-package com.studentlifemanager.expense.ui
+package com.studentlifemanager.expense.utils
 
 import com.studentlifemanager.common.data.entity.ExpenseEntity
 
