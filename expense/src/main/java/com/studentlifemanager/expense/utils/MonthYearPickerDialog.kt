@@ -6,7 +6,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.studentlifemanager.common.R
-import com.studentlifemanager.expense.databinding.DialogMonthYearPickerBinding
+import com.studentlifemanager.expense.databinding.DialogMonthYearPickerDiaBinding
 import java.util.Calendar
 import java.util.Date
 
@@ -23,7 +23,7 @@ class MonthYearPickerDialog(val date: Date = Date()) : DialogFragment() {
         private const val MAX_YEAR = 2099
     }
 
-    private lateinit var binding: DialogMonthYearPickerBinding
+    private lateinit var binding: DialogMonthYearPickerDiaBinding
 
     private var listener: DatePickerDialog.OnDateSetListener? = null
 
@@ -32,7 +32,7 @@ class MonthYearPickerDialog(val date: Date = Date()) : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        binding = DialogMonthYearPickerBinding.inflate(requireActivity().layoutInflater)
+        binding = DialogMonthYearPickerDiaBinding.inflate(requireActivity().layoutInflater)
         val cal: Calendar = Calendar.getInstance().apply { time = date }
 
         binding.pickerMonth.run {

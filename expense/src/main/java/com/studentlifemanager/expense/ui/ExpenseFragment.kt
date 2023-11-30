@@ -208,7 +208,7 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
                 _binding.tvMonth.text = getMonth()[month]
                 _binding.tvYear.text = year.toString()
             }
-            activity?.supportFragmentManager?.let { show(it, Constant.DATE_PICKER_TAG) }
+            show(this@ExpenseFragment.parentFragmentManager, Constant.DATE_PICKER_TAG)
         }
     }
 
