@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/navigation_expense"
-        android:name="com.studentlifemanager.ui.expense.ExpenseFragment"
+        android:name="com.studentlifemanager.expense.ui.ExpenseFragment"
         android:label="@string/title_expense"
         tools:layout="@layout/fragment_myexpense" />
 
     <fragment
         android:id="@+id/navigation_notes"
         android:name="com.studentlifemanager.ui.pin.PinFragment"
-        android:label="@string/title_Notes"
+        android:label="@string/title_pin"
         tools:layout="@layout/fragment_pin" />
 
     <fragment

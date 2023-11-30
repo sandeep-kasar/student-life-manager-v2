@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.studentlifemanager.common.utils.IViewCallback" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.pin.PinFragment">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/layDate"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@+id/recycler_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/imgMothLeft"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dimen_15"
+                android:onClick="@{()-> callback.onClickDate()}"
+                android:padding="@dimen/dim_5dp"
+                android:src="@drawable/ic_left"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:gravity="center"
+                android:onClick="@{()-> callback.onClickDate()}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_17sp"
+                tools:text="January," />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dim_5dp"
+                android:fontFamily="@font/montserrat_alternates_regular"
+                android:gravity="center"
+                android:onClick="@{()-> callback.onClickDate()}"
+                android:text="2023"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_17sp" />
+
+            <ImageView
+                android:id="@+id/imgMonthRight"
+                android:layout_width="@dimen/dp_35"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dimen_15"
+                android:onClick="@{()-> callback.onClickDate()}"
+                android:padding="@dimen/dim_5dp"
+                android:src="@drawable/ic_right"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layDate"
+            tools:listitem="@layout/layout_exp_body" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="@dimen/dimen_50"
+            android:layout_height="@dimen/dimen_50"
+            android:layout_marginRight="@dimen/dimen_15"
+            android:layout_marginBottom="@dimen/dimen_15"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{()-> callback.viewCallBack()}"
+            android:src="@drawable/ic_right"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
