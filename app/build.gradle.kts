@@ -75,5 +75,5 @@ dependencies {
     implementation(project(mapOf("path" to ":pin")))
     implementation(project(mapOf("path" to ":common")))
     implementation(project(mapOf("path" to ":expense")))
-    implementation("androidx.compose.material3:material3")
+    //implementation("androidx.compose.material3:material3")
 }
