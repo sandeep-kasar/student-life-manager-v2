@@ -103,8 +103,6 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
      */
     private fun setupObserver() {
 
-        expenseViewModel.getExpenseData(mMonth)
-
         expenseViewModel.selectedMonth.observe(viewLifecycleOwner) { month ->
             mMonth = month
             expenseViewModel.getExpenseData(mMonth)
@@ -162,7 +160,7 @@ class ExpenseFragment : Fragment(), IRecyclerViewClickListener,
             exNote = expenseEntity.exNote,
             exType = expenseEntity.exType,
             exDate = expenseEntity.exDate,
-            exMonth = mMonth
+            exMonth = mMonth + 1
         )
 
         if (isToUpdate) {
