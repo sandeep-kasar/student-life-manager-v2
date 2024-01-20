@@ -87,14 +87,13 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:layout_width="@dimen/dimen_50"
-            android:layout_height="@dimen/dimen_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dimen_15"
             android:layout_marginBottom="@dimen/dimen_15"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="@{()-> callback.viewCallBack()}"
-            android:src="@drawable/ic_right"
-            app:fabSize="normal"
+            android:src="@drawable/ic_plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
