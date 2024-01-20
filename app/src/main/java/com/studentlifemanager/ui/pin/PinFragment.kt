@@ -9,12 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.studentlifemanager.R
 import com.studentlifemanager.databinding.FragmentPinBinding
 import com.studentlifemanager.pin.screen.PinScreen
 import com.studentlifemanager.pin.theme.StudentLifeManagerV2Theme
-import com.studentlifemanager.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
