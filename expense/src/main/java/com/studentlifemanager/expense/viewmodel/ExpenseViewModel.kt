@@ -9,12 +9,13 @@ import com.studentlifemanager.common.utils.Constant
 import com.studentlifemanager.expense.model.ExpenseData
 import com.studentlifemanager.expense.model.ExpenseDate
 import com.studentlifemanager.expense.model.ExpenseHeader
+import com.studentlifemanager.expense.module.IoDispatcher
+import com.studentlifemanager.expense.repository.ExpenseRepository
 import com.studentlifemanager.expense.ui.EXP_BODY
 import com.studentlifemanager.expense.ui.EXP_DATE
 import com.studentlifemanager.expense.ui.EXP_HEADER
-import com.studentlifemanager.expense.repository.ExpenseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -30,7 +31,10 @@ import javax.inject.Inject
  * */
 
 @HiltViewModel
-class ExpenseViewModel @Inject constructor(private val repository: ExpenseRepository) :
+class ExpenseViewModel @Inject constructor(
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
+    private val repository: ExpenseRepository
+) :
     ViewModel() {
 
     private val _selectedMonth = MutableLiveData<Int>()
@@ -49,7 +53,7 @@ class ExpenseViewModel @Inject constructor(private val repository: ExpenseReposi
      * has all information
      */
     fun insert(expenseEntity: ExpenseEntity) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             val isInserted = async { repository.insert(expenseEntity) }
             isInserted.await()
             if (isInserted.isCompleted) {
@@ -66,7 +70,7 @@ class ExpenseViewModel @Inject constructor(private val repository: ExpenseReposi
      * has all information
      */
     fun updateExpenseById(entity: ExpenseEntity) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             val isUpdated = async {
                 repository.updateExpenseById(
                     entity.exAmount, entity.exTitle, entity.exNote, entity.exDate, entity.exId
@@ -87,7 +91,7 @@ class ExpenseViewModel @Inject constructor(private val repository: ExpenseReposi
      * has all information
      */
     fun deleteExpenseById(expenseEntity: ExpenseEntity) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
             val isDeleted = async { repository.deleteExpenseById(expenseEntity.exId) }
             isDeleted.await()
             if (isDeleted.isCompleted) {
@@ -109,7 +113,7 @@ class ExpenseViewModel @Inject constructor(private val repository: ExpenseReposi
 
         // get header data, income, expense and total
         // get dates and body
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(ioDispatcher) {
 
             // get header data
             val income = repository.getIncomeOrExpenseTotalByMonth(month, Constant.INCOME)
